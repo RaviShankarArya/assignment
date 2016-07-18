@@ -1,0 +1,16 @@
+<div class="col-sm-12 edit-align">
+  <%= link_to (image_tag asset_path('edit-icon.png')),edit_event_path(@event)%>
+</div>
+<div class="container">
+ <br/>
+ <h1> <%= @event.title%> </h1>
+ <br/>
+ <div class="row">
+   <div class="col-sm-10">
+   <%=image_tag asset_path('marathon.jpg'), :height => 250, :width => 500%>
+   </div>
+   <div class="col-sm-10">
+     <%= @event.description%>
+   </div>
+ </div>
+</div>

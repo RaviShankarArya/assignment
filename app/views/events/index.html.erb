@@ -1,0 +1,8 @@
+<% content_for :stylesheet_includes do %>
+  <%= stylesheet_link_tag(events_path(@event, format: :css)) %>
+<% end %>
+
+
+<div class = "event-color">
+<%= render :partial => "/events/show"%>
+</div>

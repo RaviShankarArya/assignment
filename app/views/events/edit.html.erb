@@ -1,0 +1,34 @@
+<%= form_for(:event,html: {:id => "event_form", :class => "form-horizontal" }, method: :put,url: event_path(@event)) do |f| %>
+<div class="container">
+  <div class="form-group">
+    <label class="control-label col-sm-2">Title:</label>
+    <div class="col-sm-6">
+     <%= f.text_field :title, class: "form-control", id: "title", placeholder: "Enter Title"%>
+   </div>
+ </div>
+ <div class="form-group">
+  <label class="control-label col-sm-2">Description:</label>
+  <div class="col-sm-6">
+   <%= f.text_area :description, class: "form-control",:rows => 10, id: "description", placeholder: "Enter Description"%>
+ </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-sm-2">Color:</label>
+  <div class="col-sm-6">
+   <%= f.select("background_color_id", BackgroundColor.all.collect do |color| [ color.name.humanize, color.id ] end,  {:prompt => "None selected"},class: "form-control")%>
+ </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-sm-2">Font Style:</label>
+  <div class="col-sm-6">
+   <%= f.select("font", ["normal","italic","oblique"],  {:prompt => "None selected"},class: "form-control")%>
+ </div>
+</div>
+<div class ="row">
+ <div class="col-sm-offset-2 col-sm-10">
+  <%=f.submit "Update", :class => "btn btn-primary"%>
+  <%= link_to 'Cancel',events_path, :class => "btn btn-default sp-btn" %>
+</div>
+</div>
+</div>
+<% end %>
